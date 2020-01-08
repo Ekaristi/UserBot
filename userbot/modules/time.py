@@ -65,11 +65,11 @@ async def time_func(tdata):
         tz_num = TZ_NUMBER
         timezones = await get_tz(COUNTRY)
     else:
-        await tdata.edit(f"It's  **{dt.now().strftime(t_form)}**  here.")
+        await tdata.edit(f"It's **{dt.now().strftime(t_form)}**.")
         return
 
     if not timezones:
-        await tdata.edit("Invaild country.")
+        await tdata.edit("Invalid country.")
         return
 
     if len(timezones) == 1:
@@ -95,11 +95,11 @@ async def time_func(tdata):
 
     if c_name != COUNTRY:
         await tdata.edit(
-            f"It's  **{dtnow}**  in {c_name} ({time_zone}).")
+            f"It's **{dtnow}** in {c_name} ({time_zone}).")
         return
 
     elif COUNTRY:
-        await tdata.edit(f"It's  **{dtnow}**  here, in {COUNTRY}"
+        await tdata.edit(f"It's **{dtnow}**, in {COUNTRY}"
                          f" ({time_zone}).")
         return
 
@@ -128,11 +128,11 @@ async def date_func(dat):
         tz_num = TZ_NUMBER
         timezones = await get_tz(COUNTRY)
     else:
-        await dat.edit(f"It's  **{dt.now().strftime(d_form)}**  here.")
+        await dat.edit(f"It's **{dt.now().strftime(d_form)}**.")
         return
 
     if not timezones:
-        await dat.edit("Invaild country.")
+        await dat.edit("Invalid country.")
         return
 
     if len(timezones) == 1:
@@ -158,26 +158,12 @@ async def date_func(dat):
 
     if c_name != COUNTRY:
         await dat.edit(
-            f"It's  **{dtnow}**  in {c_name} ({time_zone}).")
+            f"It's **{dtnow}** in {c_name} ({time_zone}).")
         return
 
     elif COUNTRY:
-        await dat.edit(f"It's  **{dtnow}**  here, in {COUNTRY}"
+        await dat.edit(f"It's **{dtnow}**, in {COUNTRY}"
                        f" ({time_zone}).")
         return
 
 
-"""CMD_HELP.update({
-    "time":
-    ".time <country name/code> <timezone number>"
-    "\nUsage: Get the time of a country. If a country has "
-    "multiple timezones, it will list all of them "
-    "and let you select one."
-})"""
-"""CMD_HELP.update({
-    "date":
-    ".date <country name/code> <timezone number>"
-    "\nUsage: Get the date of a country. If a country has "
-    "multiple timezones, it will list all of them "
-    "and let you select one."
-})"""
