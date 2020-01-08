@@ -96,7 +96,7 @@ async def gdrive_upload_function(dryb):
                 pass
         if downloader.isSuccessful():
             await dryb.edit(
-                "Downloaded to [here]({})\nNow Uploading to 𝐆𝐃𝐑𝐈𝐕𝐄."
+                "Downloaded to {}\nNow Uploading to 𝐆𝐃𝐑𝐈𝐕𝐄."
                 .format(downloaded_file_name))
             required_file_name = downloaded_file_name
         else:
@@ -125,7 +125,7 @@ async def gdrive_upload_function(dryb):
         else:
             required_file_name = downloaded_file_name
             await dryb.edit(
-                "Downloaded to [here]({})\nNow Uploading to 𝐆𝐃𝐑𝐈𝐕𝐄."
+                "Downloaded to {}\nNow Uploading to 𝐆𝐃𝐑𝐈𝐕𝐄."
                 .format(downloaded_file_name))
     if required_file_name:
         if G_DRIVE_AUTH_TOKEN_DATA is not None:
@@ -147,7 +147,7 @@ async def gdrive_upload_function(dryb):
                                              file_name, mime_type, dryb,
                                              parent_id)
             await dryb.edit(
-                f"This [Files]({required_file_name}) Uploaded to [𝐆𝐃𝐑𝐈𝐕𝐄]({g_drive_link})!"
+                f"Files {required_file_name} Uploaded to [𝐆𝐃𝐑𝐈𝐕𝐄]({g_drive_link})!"
             )
         except Exception as e:
             await dryb.edit(
@@ -436,6 +436,6 @@ async def gdrive_search(http, search_query):
         except Exception as e:
             res += str(e)
             break
-    msg = f"**GDrive Query**:\n{search_query}\n**Results**\n{res}"
+    msg = f"**Here it is your 𝐆𝐃𝐑𝐈𝐕𝐄 files** :\n{search_query}\n{res}"
     return msg
 
