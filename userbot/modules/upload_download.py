@@ -135,7 +135,7 @@ async def download(target_file):
             except Exception as e:
                 LOGS.info(str(e))
         if downloader.isSuccessful():
-            await target_file.edit("Downloaded to [here]({})!".format(
+            await target_file.edit("Downloaded to {}!".format(
                 downloaded_file_name))
         else:
             await target_file.edit("Incorrect URL\n{}".format(url))
@@ -151,7 +151,7 @@ async def download(target_file):
         except Exception as e:  # pylint:disable=C0103,W0703
             await target_file.edit(str(e))
         else:
-            await target_file.edit("Downloaded to [here]({})!".format(
+            await target_file.edit("Downloaded to {}!".format(
                 downloaded_file_name))
     else:
         await target_file.edit(
@@ -229,7 +229,7 @@ async def uploadir(udir_event):
                 os.remove(single_file)
                 uploaded = uploaded + 1
         await udir_event.edit(
-            "[This]({}) files Uploaded".format(uploaded))
+            "{} Uploaded".format(uploaded))
     else:
         await udir_event.edit("404: Directory Not Found")
 
