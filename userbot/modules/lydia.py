@@ -48,7 +48,8 @@ async def addcf(event):
         session_id = session.id
         ACC_LYDIA.update({str(event.chat_id) + " " + str(reply_msg.from_id): session})
         SESSION_ID.update({str(event.chat_id) + " " + str(reply_msg.from_id): session_id})
-        await event.edit("Lydia enabled for: {} in chat: {}".format(str(reply_msg.from_id), str(event.chat_id)))
+        await event.edit("Lydia loves you {}".format(str(reply_msg.from_id)))
+        #await event.edit("Lydia enabled for: {} in chat: {}".format(str(reply_msg.from_id), str(event.chat_id)))
     else:
         await event.edit("Reply to a user to activate.")
 
@@ -63,7 +64,8 @@ async def remcf(event):
     try:
         del ACC_LYDIA[str(event.chat_id) + " " + str(reply_msg.from_id)]
         del SESSION_ID[str(event.chat_id) + " " + str(reply_msg.from_id)]
-        await event.edit("Lydia disabled for: {} in chat: {}".format(str(reply_msg.from_id), str(event.chat_id)))
+        await event.edit("Lydia left you {}".format(str(reply_msg.from_id)))
+        #await event.edit("Lydia disabled for: {} in chat: {}".format(str(reply_msg.from_id), str(event.chat_id)))
     except KeyError:
         await event.edit("Lydia NOT activated.")
 
