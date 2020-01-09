@@ -36,12 +36,12 @@ async def is_off_br(br):
 @register(outgoing=True, pattern="^.u(?: |$)(.*)")
 async def upstream(ups):
     "For .update command, check if the bot is up to date, update if specified"
-    await ups.edit("Checking for updates, please wait....")
+    await ups.edit("Loading...")
     conf = ups.pattern_match.group(1).lower()
     off_repo = 'https://github.com/BL4CKID/UserBot.git'
 
     try:
-        txt = "Oops.. Updater cannot continue due to some problems occured\n\n**LOGTRACE:**\n"
+        txt = "Oops..Updater cannot continue...\n\n**LOGTRACE:**\n"
         repo = Repo()
     except NoSuchPathError as error:
         await ups.edit(f'{txt}\ndirectory {error} is not found')
@@ -76,11 +76,11 @@ async def upstream(ups):
     changelog = await gen_chlog(repo, f'HEAD..upstream/{ac_br}')
 
     if not changelog:
-        await ups.edit(f'\nYour UserBug is **UP-TO-DATE** with **{ac_br}** branch from [𝐁𝐋𝟒𝐂𝐊_𝐈𝐃](https://github.com/BL4CKID/UserBot)\n')
+        await ups.edit(f'\nYour UserBot is **UP-TO-DATE** with **{ac_br}** Branch from [𝐁𝐋𝟒𝐂𝐊_𝐈𝐃](https://github.com/BL4CKID/UserBot) Repository.\n')
         return
 
     if conf != "now":
-        changelog_str = f'**New UPDATE available for [{ac_br}]:\n\nCHANGELOG:**\n{changelog}'
+        changelog_str = f'**Update available for [{ac_br}]:\n\nCHANGELOG:**\n{changelog}'
         if len(changelog_str) > 4096:
             await ups.edit("Changelog is too big, sending it as a file.")
             file = open("output.txt", "w+")
@@ -100,8 +100,8 @@ async def upstream(ups):
 
     await ups.edit('Updating...')
     ups_rem.fetch(ac_br)
-    await ups.edit('Successfully Updated!\n'
-                   'Bot is restarting... Wait for a second...')
+    await ups.edit('UserBot Updated\n'
+                   'Bot is restarting...Wait a seconds...')
     await install_requirements()
     await bot.disconnect()
     # Spin a new instance of bot
