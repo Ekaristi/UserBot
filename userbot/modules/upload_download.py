@@ -135,10 +135,10 @@ async def download(target_file):
             except Exception as e:
                 LOGS.info(str(e))
         if downloader.isSuccessful():
-            await target_file.edit("Downloaded to {}!".format(
+            await target_file.edit("Downloaded to {}".format(
                 downloaded_file_name))
         else:
-            await target_file.edit("Incorrect URL\n{}".format(url))
+            await target_file.edit("Incorrect URL {}".format(url))
     elif target_file.reply_to_msg_id:
         try:
             c_time = time.time()
@@ -151,7 +151,7 @@ async def download(target_file):
         except Exception as e:  # pylint:disable=C0103,W0703
             await target_file.edit(str(e))
         else:
-            await target_file.edit("Downloaded to {}!".format(
+            await target_file.edit("Downloaded to {}".format(
                 downloaded_file_name))
     else:
         await target_file.edit(
@@ -173,7 +173,7 @@ async def uploadir(udir_event):
         LOGS.info(lst_of_files)
         uploaded = 0
         await udir_event.edit(
-            "Found [this]({}) files. Please wait!".format(
+            "Found {}. Loading...".format(
                 len(lst_of_files)))
         for single_file in lst_of_files:
             if os.path.exists(single_file):
@@ -229,9 +229,9 @@ async def uploadir(udir_event):
                 os.remove(single_file)
                 uploaded = uploaded + 1
         await udir_event.edit(
-            "{} Uploaded".format(uploaded))
+            "{} Uploaded.".format(uploaded))
     else:
-        await udir_event.edit("404: Directory Not Found")
+        await udir_event.edit("404 Not Found.")
 
 
 @register(pattern=r".up (.*)", outgoing=True)
@@ -240,7 +240,7 @@ async def upload(u_event):
     await u_event.edit("Processing ...")
     input_str = u_event.pattern_match.group(1)
     if input_str in ("userbot.session", "config.env"):
-        await u_event.edit("That's a dangerous operation! Not Permitted!")
+        await u_event.edit("Not Permitted.")
         return
     if os.path.exists(input_str):
         c_time = time.time()
@@ -253,9 +253,9 @@ async def upload(u_event):
             progress_callback=lambda d, t: asyncio.get_event_loop(
             ).create_task(
                 progress(d, t, u_event, c_time, "Uploading...", input_str)))
-        await u_event.edit("Upload Done.")
+        await u_event.edit("Uploaded.")
     else:
-        await u_event.edit("404: File Not Found")
+        await u_event.edit("404 Not Found.")
 
 
 def get_video_thumb(file, output=None, width=90):
@@ -396,11 +396,11 @@ async def uploadas(uas_event):
                 await uas_event.edit("TBD: Not (yet) Implemented")
                 return
             os.remove(thumb)
-            await uas_event.edit("Uploaded successfully !!")
+            await uas_event.edit("Uploaded.")
         except FileNotFoundError as err:
             await uas_event.edit(str(err))
     else:
-        await uas_event.edit("404: File Not Found")
+        await uas_event.edit("404 Not Found.")
 
 
 """CMD_HELP.update({
