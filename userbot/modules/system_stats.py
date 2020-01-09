@@ -37,7 +37,7 @@ async def sysdetails(sysd):
 
         await sysd.edit("" + result + "")
     except FileNotFoundError:
-        await sysd.edit("Install neofetch first !!")
+        await sysd.edit("Install Neofetch 1st.")
 
 
 @register(outgoing=True, pattern="^.bv$")
@@ -71,7 +71,7 @@ async def bot_ver(event):
                          f"\n⊙ Loaded by : ⊙ {DEFAULTUSER} ⊙")
     else:
         await event.edit(
-            "Shame that you don't have git, You're running 5.0 - 'Extended' anyway"
+            "Shame, you don't have a Brain."
         )
 
 
@@ -126,7 +126,7 @@ async def amireallyalive(on):
                   f"⊙ Python    :  {python_version()} ⊙\n\n"
                   f"⊙ {DEFAULTUSER} ⊙")
 
-@register(outgoing=True, pattern="^.al")
+@register(outgoing=True, pattern="^.alllllllllll")
 async def amireallyaliveuser(username):
     """ For .aliveu command, change the username in the .alive command. """
     message = username.text
@@ -139,7 +139,7 @@ async def amireallyaliveuser(username):
     await username.edit("" f"{output}" "")
 
 
-@register(outgoing=True, pattern="^.rl$")
+@register(outgoing=True, pattern="^.rlllllllllll$")
 async def amireallyalivereset(ureset):
     """ For .resetalive command, reset the username in the .alive command. """
     global DEFAULTUSER
@@ -147,20 +147,3 @@ async def amireallyalivereset(ureset):
     await ureset.edit("" "Successfully reset user for alive!" "")
 
 
-"""CMD_HELP.update(
-    {"sysd": ".sysd\
-    \nUsage: Shows system information using neofetch."})
-CMD_HELP.update({"botver": ".botver\
-    \nUsage: Shows the userbot version."})
-CMD_HELP.update(
-    {"pip": ".pip <module(s)>\
-    \nUsage: Does a search of pip modules(s)."})
-CMD_HELP.update({
-    "on":
-    ".on\
-    \nUsage: Type .on to see wether your bot is working or not.\
-    \n\n.aliveu <text>\
-    \nUsage: Changes the 'user' in alive to the text you want.\
-    \n\n.resetalive\
-    \nUsage: Resets the user to default."
-})"""
