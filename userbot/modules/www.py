@@ -17,7 +17,7 @@ from userbot.events import register
 @register(outgoing=True, pattern="^.speed$")
 async def speedtst(spd):
     """ For .speed command, use SpeedTest to check server speeds. """
-    await spd.edit("Downloading Tarzan X for Testing Speed Test...")
+    await spd.edit("Downloading Maria_Ozawa.Mp4 for Speed Test...")
     test = Speedtest()
 
     test.get_best_server()
@@ -64,19 +64,8 @@ async def neardc(event):
 async def pingme(pong):
     """ For .ping command, ping the userbot from any chat.  """
     start = datetime.now()
-    await pong.edit("`Pong!`")
+    await pong.edit("Ping...")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await pong.edit("Ping Pong !!! %sms" % (duration))
+    await pong.edit("Pong... %sms " % (duration))
 
-
-"""CMD_HELP.update(
-    {"speed": ".speed\
-    \nUsage: Does a speedtest and shows the results."})
-CMD_HELP.update(
-    {"dc": ".dc\
-    \nUsage: Finds the nearest datacenter from your server."})
-CMD_HELP.update(
-    {"ping": ".ping\
-    \nUsage: Shows how long it takes to ping your bot."})
-"""
