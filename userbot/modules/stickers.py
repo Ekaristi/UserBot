@@ -24,6 +24,7 @@ KANGING_STR = [
     "Let me check 1st...",
     "Hmmmmm U know what I'm doing right now?",
     "Scanning...",
+    "Scanning my Brain...",
 ]
 
 
@@ -66,10 +67,10 @@ async def kang(args):
             is_anim = True
             photo = 1
         else:
-            await args.edit("Unsupported !")
+            await args.edit("Unsupported.")
             return
     else:
-        await args.edit("I can't kang that...")
+        await args.edit("I Can't Do It.")
         return
 
     if photo:
@@ -175,7 +176,7 @@ async def kang(args):
                 rsp = await conv.get_response()
                 if "Sorry, the file type is invalid." in rsp.text:
                     await args.edit(
-                        "Failed to add sticker, use @Stickers bot to add the sticker manually."
+                        "Failed. Use @Stickers bot to add the sticker manually."
                     )
                     return
                 await conv.send_message(emoji)
@@ -206,7 +207,7 @@ async def kang(args):
                 rsp = await conv.get_response()
                 if "Sorry, the file type is invalid." in rsp.text:
                     await args.edit(
-                        "Failed to add sticker, use @Stickers bot to add the sticker manually."
+                        "Failed. Use @Stickers bot to add the sticker manually."
                     )
                     return
                 await conv.send_message(emoji)
@@ -231,7 +232,7 @@ async def kang(args):
                 # Ensure user doesn't get spamming notifications
                 await bot.send_read_acknowledge(conv.chat_id)
 
-        await args.edit(f"I found a [VIRUS](t.me/addstickers/{packname})",
+        await args.edit(f"Hoooray...I found my [BRAIN](t.me/addstickers/{packname})",
                         parse_mode='md')
 
 
