@@ -30,7 +30,7 @@ async def telegraphs(graph):
                 )
                 end = datetime.now()
                 ms = (end - start).seconds
-                await graph.edit("This [Files]({}) Downloaded in {} seconds.".format(downloaded_file_name, ms))
+                await graph.edit("[Files]({}) Downloaded in {} seconds.".format(downloaded_file_name, ms))
                 if downloaded_file_name.endswith((".webp")):
                     resize_image(downloaded_file_name)
                 try:
@@ -43,7 +43,7 @@ async def telegraphs(graph):
                     end = datetime.now()
                     ms_two = (end - start).seconds
                     os.remove(downloaded_file_name)
-                    await graph.edit("This [Files](https://telegra.ph{}) Uploaded in {} seconds.".format(media_urls[0], (ms + ms_two)), link_preview=True)
+                    await graph.edit("Telegraph [LINK](https://telegra.ph{}) Uploaded in {} seconds.".format(media_urls[0], (ms + ms_two)), link_preview=True)
             elif input_str == "t":
                 user_object = await bot.get_entity(r_message.from_id)
                 title_of_page = user_object.first_name # + " " + user_object.last_name
@@ -78,9 +78,3 @@ def resize_image(image):
     im = Image.open(image)
     im.save(image, "PNG")
 
-"""
-CMD_HELP.update({
-    'telegraph': '.telegraph media | text\
-        \nUsage: Upload text & media on Telegraph.'
-})
-"""
