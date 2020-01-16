@@ -973,17 +973,17 @@ CMD_HELP.update({
 @register(outgoing=True, pattern="^.sgd$")
 async def dumier(dumoler):
     await dumoler.edit("⊙ 𝐆𝐃𝐑𝐈𝐕𝐄 ⊙\n\
-		       \n⊙ .gd <file_path / reply / URL|file_name> ⊙\
+		       \n⊙ .gd file_path / reply / URL|file_name ⊙\
 		       \n⊙ Usage: Uploads the file in reply, URL or file path in server to your GDrive ⊙\
-		       \n⊙ .li <query> ⊙\
+		       \n⊙ .li query ⊙\
 		       \n⊙ Usage : Looks for files and folders in your GDrive ⊙\
-		       \n⊙ .gsetf <GDrive Folder URL> ⊙\
+		       \n⊙ .gsetf GDrive Folder URL ⊙\
 		       \n⊙ Usage : Sets the folder to upload new files to ⊙\
 		       \n⊙ .gsetclear ⊙\
 		       \n⊙ Usage : Reverts to default upload destination ⊙\
 		       \n⊙ .gfolder ⊙\
 		       \n⊙ Usage : Shows your current upload destination/folder ⊙\
-		       \n⊙ .ggd <path_to_folder_in_server> ⊙\
+		       \n⊙ .ggd path_to_folder_in_server ⊙\
 		       \n⊙ Usage : Uploads all the files in the directory to a folder in GDrive ⊙")
 
 @register(outgoing=True, pattern="^.info$")
