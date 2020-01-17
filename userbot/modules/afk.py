@@ -53,7 +53,7 @@ async def mention_afk(mention):
         if ISAFK:
             if mention.sender_id not in USERS:
                 if AFKREASON:
-                    await mention.reply(f"I'm away. Reason: {AFKREASON}")
+                    await mention.reply(f"I'm away. {AFKREASON}")
                 else:
                     await mention.reply(str(choice(AFKSTR)))
                 USERS.update({mention.sender_id: 1})
@@ -61,7 +61,7 @@ async def mention_afk(mention):
             elif mention.sender_id in USERS:
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await mention.reply(f"I'm still away. Reason: {AFKREASON}")
+                        await mention.reply(f"I'm still away. {AFKREASON}")
                     else:
                         await mention.reply(str(choice(AFKSTR)))
                     USERS[mention.sender_id] = USERS[mention.sender_id] + 1
@@ -90,7 +90,7 @@ async def afk_on_pm(sender):
         if apprv and ISAFK:
             if sender.sender_id not in USERS:
                 if AFKREASON:
-                    await sender.reply(f"I'm away. Reason: {AFKREASON}")
+                    await sender.reply(f"I'm away. {AFKREASON}")
                 else:
                     await sender.reply(str(choice(AFKSTR)))
                 USERS.update({sender.sender_id: 1})
@@ -98,7 +98,7 @@ async def afk_on_pm(sender):
             elif apprv and sender.sender_id in USERS:
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await sender.reply(f"I'm still away. Reason: {AFKREASON}")
+                        await sender.reply(f"I'm still away. {AFKREASON}")
                     else:
                         await sender.reply(str(choice(AFKSTR)))
                     USERS[sender.sender_id] = USERS[sender.sender_id] + 1
@@ -117,7 +117,7 @@ async def set_afk(afk_e):
     global AFKREASON
     if string:
         AFKREASON = string
-        await afk_e.edit(f"I'm Going away. Reason: {string}")
+        await afk_e.edit(f"I'm Going away. {string}")
     else:
         await afk_e.edit("I'm Going away")
     if BOTLOG:
