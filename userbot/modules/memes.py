@@ -263,3 +263,18 @@ async def typewriter(typew):
         await sleep(sleep_time)
 
 
+@register(outgoing=True, pattern="^.dunia (.*)")
+async def let_me_google_that_for_youu(lmgtfyy_q):
+    textx = await lmgtfyy_q.get_reply_message()
+    qry = lmgtfyy_q.pattern_match.group(1)
+    if qry:
+        query = str(qry)
+    elif textx:
+        query = textx
+        query = query.message
+    query_encoded = query.replace(" ", "+")
+    lfy_url = f"http://dunia21.org/?s=g&iie=1&q={query_encoded}"
+    payload = {'format': 'json', 'url': lfy_url}
+    r = requests.get('http://is.gd/create.php', params=payload)
+    await lmgtfyy_q.edit(f"Nih Link ... [{query}]({r.json()['shorturl']})")
+
